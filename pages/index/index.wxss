@@ -1,0 +1,6 @@
+/**index.wxss**/
+@import "../compent/header.wxss";
+@import "../compent/footer.wxss";
+.usermotto {
+  margin-top: 200px;
+}

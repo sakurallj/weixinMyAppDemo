@@ -1,0 +1,36 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/person/person",
+    "pages/social/social",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#f00",
+    "navigationBarTitleText": "CITY GAMES",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar":{
+    "color":"#000",
+    "selectedColor":"#f00",
+    "backgroundColor":"#fff",
+    "borderStyle":"white",
+    "list":[{
+      "pagePath":"pages/index/index",
+      "text":"赛事",
+      "iconPath":"pages/images/trophy.png",
+      "selectedIconPath":"pages/images/trophy.png"
+    },{
+      "pagePath":"pages/social/social",
+      "text":"球友圈",
+      "iconPath":"pages/images/circle.png",
+      "selectedIconPath":"pages/images/circle.png"
+    },{
+      "pagePath":"pages/person/person",
+      "text":"我的",
+      "iconPath":"pages/images/person.png",
+      "selectedIconPath":"pages/images/person.png"
+    }]
+  }
+}
