@@ -1,4 +1,5 @@
 //app.js
+var apiDomain = "http://ss.taolue.fm/shengsetiyu/singshine";
 App({
   onLaunch: function () {
     var that = this;
@@ -38,7 +39,12 @@ App({
   },
   globalData:{
     userInfo:null,
-    location:{latitude:null,longitude:null,speed:null,accuracy:null}
+    location:{latitude:null,longitude:null,speed:null,accuracy:null},
+    url:{
+      api:{//不能以 / 结尾
+        home:apiDomain+"/appapi.php?url=matchAPI"
+      }
+    }
   }
 
 });
