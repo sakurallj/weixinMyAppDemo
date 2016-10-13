@@ -1,3 +1,4 @@
 {
-    "navigationBarTitleText": "CITY GAMES"
+    "navigationBarTitleText": "CITY GAMES",
+    "enablePullDownRefresh": true
 }

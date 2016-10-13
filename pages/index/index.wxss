@@ -1,6 +1,6 @@
 /**index.wxss**/
-@import "../compent/header.wxss";
-@import "../compent/footer.wxss";
+@import "../template/match/match-list-item.wxss";
+@import "../template/advertise/advertise-banner-mid.wxss";
 .slide-image {
    width: 100%;
 }
