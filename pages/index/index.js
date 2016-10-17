@@ -87,13 +87,5 @@ Page({
   onLoad: function () {
     console.log('onLoad')
     loadData(this);  
-  },
-  //打开地图
-  bindOpenMap : function () {
-    wx.openLocation({
-      latitude: app.globalData.latitude,
-      longitude: app.globalData.longitude,
-      scale: 10
-    })
-  }
+  } 
 })
