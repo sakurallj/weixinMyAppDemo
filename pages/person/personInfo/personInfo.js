@@ -2,7 +2,9 @@
 var app = getApp();
 Page({
   data:{
-     userInfo:{}
+    userInfo:{},
+    toastHidden:true,
+    toasttoastContent:"请重试"
   },
   onLoad:function(options){
     var that = this;
@@ -24,5 +26,30 @@ Page({
   },
   onUnload:function(){
     // 页面关闭
+  },
+  chooseImage:function(){
+    var that = this;
+    wx.chooseImage({
+      count:1,
+      success:function(res){
+        console.log(res);
+        var userInfo = that.data.userInfo;
+        userInfo.headimg = res.tempFilePaths[0];
+        that.setData({
+          userInfo:userInfo
+        });
+      },
+      fail:function(res){
+        that.setData({
+          toastHidden:false
+        });
+      }
+    });
+  },
+  toastChange:function(){
+    var that = this;
+    that.setData({
+      toastHidden:true
+    });
   }
 });

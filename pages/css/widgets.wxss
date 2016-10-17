@@ -26,11 +26,9 @@
 }
 
 .widgets__list{
-    display: none;
-}
-.widgets__list_show{
     display: block;
 }
+ 
 .widget{
     position: relative;
     padding-top: 26rpx;
@@ -46,12 +44,8 @@
     width: 16rpx;
     height: 32rpx;
 }
-.widget__right{
-    float: right;
-    width: 500rpx;
-    height: 32rpx;
-    text-align:right;
-}
+
+
 .widget__line{
     content: " ";
     position: absolute;

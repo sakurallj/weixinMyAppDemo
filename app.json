@@ -13,7 +13,7 @@
     "navigationBarBackgroundColor": "#e02e25",
     "navigationBarTitleText": "CITY GAMES",
     "navigationBarTextStyle":"white",
-    "backgroundColor": "#000" 
+    "backgroundColor": "#fff" 
   },
   "tabBar":{
     "color":"#000",

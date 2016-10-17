@@ -66,10 +66,11 @@ App({
     location:{latitude:null,longitude:null,speed:null,accuracy:null},
     url:{
       api:{//不能以 / 结尾
-        home:apiDomain+"?url=matchAPI",
-        socialHome:apiDomain+"?url=socialAPI",
-        login:apiDomain+"?url=memberAPI&task=mblogin",
-        getUserInfo:apiDomain+"?url=memberAPI&task=mbgetinfo" 
+        home:apiDomain+"?url=matchAPI",//首页
+        socialHome:apiDomain+"?url=socialAPI",//获得球友圈首页
+        login:apiDomain+"?url=memberAPI&task=mblogin",//登录
+        getUserInfo:apiDomain+"?url=memberAPI&task=mbgetinfo" ,//获得用户信息
+        loginOut:apiDomain+"?url=memberAPI&task=mblogout" //登出 ?url=memberAPI&task=mblogout&token=73231180cd6a892be3c7d7934e199ec1
       }
     }
   },

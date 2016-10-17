@@ -36,9 +36,13 @@
                 </view>
                 <view class="main-img-group">
                     <block wx:for="{{photos}}">
-                        <view >
-                            <image class="main-img-group-image" src="{{item.thumb}}" itemprop="thumbnail"  wx:if="{{item.thumb}}" mode="scaleToFill"></image>
-                            <image class="main-img-group-image" src="{{item.image}}" itemprop="thumbnail"  wx:elif="{{item.image}}" mode="aspectFit"></image>
+                        <view>
+                            <image class="main-img-group-image" src="{{item.thumb}}" itemprop="thumbnail" wx:if="{{item.thumb}}" mode="scaleToFill"  
+                                bindtap="previewSocialImage" data-photos="{{photosStr}}" data-current-item-seq="{{index}}"  >
+                            </image>
+                            <image class="main-img-group-image" src="{{item.image}}" itemprop="thumbnail"  wx:elif="{{item.image}}" mode="scaleToFill"
+                                bindtap="previewSocialImage" data-photos="{{photosStr}}" data-current-item-seq="{{index}}"  >
+                            </image>
                         </view>
                     </block>
                     <view class="clear"></view>

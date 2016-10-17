@@ -1,31 +1,38 @@
 
 <view class="container">
+    <toast hidden="{{toastHidden}}" icon="warn" duration="1500"  bindchange="toastChange" >
+        {{toasttoastContent}}
+    </toast>
     <view class="widgets">
-        <view class="widgets__item">
-            <view class="widgets__list widgets__list_show">
+        <view class="widgets__item widgets__item__top">
+            <view class="widgets__list">
                 <view  class="widget">
-                    <text class="widget__name__only">头像</text>
-                    <view class="widget__right" ></view>
-                    <view class="widget__line"></view>
+                    <view class="widget__name__only widget__name__only__left">头像</view>
+                    <image src="{{userInfo.headimg}}" class="widget__right widget__right__image" bindtap="chooseImage"></image>
                 </view>
             </view>
-            <view class="widgets__list widgets__list_show">
+        </view>
+        <view class="widgets__item">
+            <view class="widgets__list">
                 <view  class="widget">
                     <text class="widget__name__only">昵称</text>
+                    <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
                     <input class="widget__right" value="{{userInfo.nick}}" ></input>
                     <view class="widget__line"></view>
                 </view>
             </view>
-            <view class="widgets__list widgets__list_show">
+            <view class="widgets__list">
                 <view  class="widget">
                     <text class="widget__name__only">年龄</text>
+                    <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
                     <input class="widget__right"  value="{{userInfo.age}}" ></input>
                     <view class="widget__line"></view>
                 </view>
             </view>
-            <view class="widgets__list widgets__list_show">
+            <view class="widgets__list">
                 <view  class="widget">
                     <text class="widget__name__only">城市</text>
+                    <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
                     <input class="widget__right"   value="{{userInfo.city}}"></input>
                 </view>
             </view>

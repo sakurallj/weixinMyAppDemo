@@ -1,5 +1,11 @@
 
 <view class="container">
+    <modal title="标题"   hidden="{{modalHidden}}" bindconfirm="modalConfim" bindcancel="modalCancel">
+        {{modalContent}}
+    </modal>
+     <loading hidden="{{loadingHidden}}" bindchange="loadingChange">
+    	{{loadingContent}}
+    </loading>
     <view class="widgets">
         <view class="widgets__item">
             <view class="widgets__list widgets__list_show">
@@ -31,4 +37,9 @@
             </view>
         </view>
     </view>
+    <view class="buttons-group setting-btn-group" wx:if="{{userInfo.has}}" >
+		<button type="button" class="buttons"  id="submit" bindtap="login"  plain="true" type="warn" bindtap="loginOut">
+			退出登录
+		</button>
+	</view>
 </view>
