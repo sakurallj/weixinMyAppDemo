@@ -46,6 +46,12 @@
     width: 16rpx;
     height: 32rpx;
 }
+.widget__right{
+    float: right;
+    width: 500rpx;
+    height: 32rpx;
+    text-align:right;
+}
 .widget__line{
     content: " ";
     position: absolute;

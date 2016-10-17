@@ -2,8 +2,10 @@
   "pages":[
     "pages/index/index",
     "pages/person/person",
+    "pages/person/login/login",
+    "pages/person/personInfo/personInfo",
     "pages/social/social",
-    "pages/setting/setting",
+    "pages/person/setting/setting",
     "pages/logs/logs"
   ],
   "window":{

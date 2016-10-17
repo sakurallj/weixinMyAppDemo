@@ -4,17 +4,16 @@
     padding: 10rpx 20rpx;
     margin-top: 10rpx;
     display: table;
-    width: 100%;
+    width: 19rem;
     vertical-align: middle;
     position: relative;
 }
 .advertise-option-image{
-    width: 100%;
+    width: 19rem;
     height: 170rpx;
-    margin-right: 20rpx;
 }
 .advertise-option-title{
     text-align: center;
-    width: 100%;
+    width: 19rem;
     font-size: 40rpx;
 }

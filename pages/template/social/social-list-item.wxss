@@ -1,7 +1,7 @@
  
 .huati-content-option-head {
     float: left;
-    margin-right: .15rem;
+    margin-right: .5rem;
     width: 2rem;
     height: 2rem;
     font-size: 0;
@@ -31,6 +31,7 @@
     color: #0092ff;
     font-size: 24rpx;
     z-index: 3;
+    padding-top: 10rpx;
 }
  
 
@@ -60,7 +61,14 @@
     margin-bottom: -.15rem;
     font-size: 0;
 }
-
+.main-img-group-image {
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+    float: left;
+    margin-right: .2rem;
+    margin-bottom: .2rem;
+}
  
 .main-time-btn {
     font-size: 22rpx;
@@ -71,8 +79,10 @@
 .main-time {
     float: left;
     margin-top: .08rem;
-    margin-right: .15rem;
     padding-top: .15rem;
+    width: 3rem;
+    height: 2rem;
+    color:#0092ff;
 }
 .main-btn-img{
     float: left;
@@ -116,12 +126,11 @@
 }
 .huati-content-font {
     float: left;
-    width: 6rem;
+    width: 16.4rem;
     margin-top: .1rem;
 }
 .huati-content-option-bg{
     background-color: #fff;
-    margin-top: 20rpx;
     padding: 0 20rpx 20rpx 20rpx;
 }
  

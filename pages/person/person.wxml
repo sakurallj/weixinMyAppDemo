@@ -1,13 +1,15 @@
 
 <view class="container">
     <view class="user-head-bg">
-        <view class="user-head-logo-bg">
-            <view class="user-head-logo"
-                style="background: url('{{userInfo.avatarUrl}}') no-repeat center;background-size: cover">
+        <navigator url="{{loginToUrl}}" >
+            <view class="user-head-logo-bg">
+                <view class="user-head-logo"
+                    style="background: url('{{userInfo.headimg}}') no-repeat center;background-size: cover">
+                </view>
             </view>
-        </view>
+        </navigator>
         <view class="user-head-bg-font-group">
-            <view class="user-head-bg-font-name">{{userInfo.nickName}}</view>
+            <view class="user-head-bg-font-name">{{userInfo.nick}}</view>
             <view class="user-head-bg-font-description">
                 年龄：<block wx:if="{{userInfo.age||userInfo.age==0}}">{{userInfo.age}}</block><block wx:else>--</block>
                 所在地：<block wx:if="{{userInfo.city}}">{{userInfo.city}}</block><block wx:else>--</block>
@@ -67,7 +69,7 @@
                 </navigator>
             </view>
             <view class="widgets__list widgets__list_show">
-                <navigator url="../setting/setting" class="widget" >
+                <navigator url="setting/setting" class="widget" >
                     <image src="../images/setting.png" class="widgets__item__icon"></image>
                     <text class="widget__name">设置</text>
                     <image class="widget__arrow" src="../images/arrow-right.png" background-size="cover" />

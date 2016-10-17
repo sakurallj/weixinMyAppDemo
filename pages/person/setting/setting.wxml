@@ -5,28 +5,28 @@
             <view class="widgets__list widgets__list_show">
                 <navigator url="component-pages/wx-scroll-view/wx-scroll-view" class="widget">
                     <text class="widget__name__only">邀请好友</text>
-                    <image class="widget__arrow" src="../images/arrow-right.png" background-size="cover" />
+                    <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
                     <view class="widget__line"></view>
                 </navigator>
             </view>
             <view class="widgets__list widgets__list_show">
                 <navigator url="component-pages/wx-scroll-view/wx-scroll-view" class="widget">
                     <text class="widget__name__only">意见反馈</text>
-                    <image class="widget__arrow" src="../images/arrow-right.png" background-size="cover" />
+                    <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
                     <view class="widget__line"></view>
                 </navigator>
             </view>
             <view class="widgets__list widgets__list_show">
                 <navigator url="component-pages/wx-scroll-view/wx-scroll-view" class="widget">
                     <text class="widget__name__only">清空缓存</text>
-                    <image class="widget__arrow" src="../images/arrow-right.png" background-size="cover" />
+                    <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
                     <view class="widget__line"></view>
                 </navigator>
             </view>
             <view class="widgets__list widgets__list_show">
                 <navigator url="component-pages/wx-scroll-view/wx-scroll-view" class="widget">
                     <text class="widget__name__only">关于我们</text>
-                    <image class="widget__arrow" src="../images/arrow-right.png" background-size="cover" />
+                    <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
                 </navigator>
             </view>
         </view>

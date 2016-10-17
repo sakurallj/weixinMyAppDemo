@@ -1,0 +1,34 @@
+
+<view class="container">
+    <view class="widgets">
+        <view class="widgets__item">
+            <view class="widgets__list widgets__list_show">
+                <view  class="widget">
+                    <text class="widget__name__only">头像</text>
+                    <view class="widget__right" ></view>
+                    <view class="widget__line"></view>
+                </view>
+            </view>
+            <view class="widgets__list widgets__list_show">
+                <view  class="widget">
+                    <text class="widget__name__only">昵称</text>
+                    <input class="widget__right" value="{{userInfo.nick}}" ></input>
+                    <view class="widget__line"></view>
+                </view>
+            </view>
+            <view class="widgets__list widgets__list_show">
+                <view  class="widget">
+                    <text class="widget__name__only">年龄</text>
+                    <input class="widget__right"  value="{{userInfo.age}}" ></input>
+                    <view class="widget__line"></view>
+                </view>
+            </view>
+            <view class="widgets__list widgets__list_show">
+                <view  class="widget">
+                    <text class="widget__name__only">城市</text>
+                    <input class="widget__right"   value="{{userInfo.city}}"></input>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,27 +1,14 @@
 <template name="social-list-item">
-    <view class="huati-content-option-bg dynamic_click" data-id="{{id}}" id="dynamic_id_{{id}}">
+    <view class="huati-content-option-bg dynamic_click">
         <view class="huati-content-option">
-            <view class="huati-content-option-head  return_false">
+            <view class="huati-content-option-head">
                 <view class="head-img-bg">
-                    <image class="head-img "
-                        data-id="{{userid}}"
-                        data-nick="{{nickname}}"
-                        data-logo="{{profile}}"
-                        data-isfocus="{{isfocus}}"
-                        data="{{userid}}"
-                        src="{{profile}}"
-                        alt="">
-                    </image>
+                    <image class="head-img"  src="{{profile}}"></image>
                 </view>
             </view>
             <view class="huati-content-font">
-                <view class="return_false">
-                    <view class="huati-content-name "
-                        data-id="{{userid}}"
-                        data-nick="{{nickname}}"
-                        data-logo="{{profile}}"
-                        data-isfocus="{{isfocus}}"
-                        data="{{userid}}">
+                <view >
+                    <view class="huati-content-name">
                         {{nickname}}
                     </view>
                     <view class="icon-down " wx:if="{{isself==0}}">
@@ -31,17 +18,13 @@
 
                         <view class="drop-down none">
                             <view class="arrow-little"></view>
-                            <view class="addfocus addfocus_dny_u_{{userid}} " href="javascript:;"
-                            data-id="{{id}}"
-                            data-taruserid="{{userid}}">
+                            <view class="addfocus addfocus_dny_u_{{userid}} " href="javascript:;">
                                 <view class="drop-down-option">关注</view>
                             </view>
-                            <view class="cancelfocus cancelfocus_dny_u_{{userid}} " href="javascript:;"
-                            data-id="{{id}}"
-                            data-taruserid="{{userid}}">
+                            <view class="cancelfocus cancelfocus_dny_u_{{userid}} " href="javascript:;">
                                 <view class="drop-down-option">取消关注</view>
                             </view>
-                            <view href="javascript:;" class="addreport" data-dynid="{{id}}">
+                            <view href="javascript:;" class="addreport">
                                 <view class="drop-down-option">举报</view>
                             </view>
                         </view>
@@ -51,18 +34,17 @@
                 <view class="main-content ">
                     {{content}}
                 </view>
-                <view class="main-img-group  return_false">
-                    <view class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
-                        <block wx:for="{{photos}}">
-                            <image src="{{item.thumb}}" itemprop="thumbnail"  wx:if="{{item.thumb}}"></image>
-                            <image src="{{item.image}}" itemprop="thumbnail"  wx:elif="{{item.image}}"></image>
-                        </block>
-                    </view>
+                <view class="main-img-group">
+                    <block wx:for="{{photos}}">
+                        <view >
+                            <image class="main-img-group-image" src="{{item.thumb}}" itemprop="thumbnail"  wx:if="{{item.thumb}}" mode="scaleToFill"></image>
+                            <image class="main-img-group-image" src="{{item.image}}" itemprop="thumbnail"  wx:elif="{{item.image}}" mode="aspectFit"></image>
+                        </view>
+                    </block>
                     <view class="clear"></view>
                 </view>
-                <view class="main-time-btn return_false">
+                <view class="main-time-bt">
                     <view class="main-time">{{commtime}}</view>
-                  
                     <block wx:if="{{isself ==1}}">
                         <view class="huati-content-delete dyndelete" data-id="{{id}}">删除</view>
                     </block>
