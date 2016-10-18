@@ -50,7 +50,7 @@ Page({
           app.globalData.userInfo = {has:false};
           wx.setStorage({
             key:"userInfo",
-            data:{}
+            data:{has:false}
           });
           wx.navigateBack();
         }

@@ -6,6 +6,7 @@
     "pages/person/personInfo/personInfo",
     "pages/social/social",
     "pages/person/setting/setting",
+    "pages/address/address",
     "pages/logs/logs"
   ],
   "window":{

@@ -17,7 +17,7 @@
                 <view  class="widget">
                     <text class="widget__name__only">昵称</text>
                     <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
-                    <input class="widget__right" value="{{userInfo.nick}}" ></input>
+                    <view class="widget__right"  >{{userInfo.nick}}</view>
                     <view class="widget__line"></view>
                 </view>
             </view>
@@ -25,16 +25,16 @@
                 <view  class="widget">
                     <text class="widget__name__only">年龄</text>
                     <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
-                    <input class="widget__right"  value="{{userInfo.age}}" ></input>
+                    <view class="widget__right"  >{{userInfo.age}}</view>
                     <view class="widget__line"></view>
                 </view>
             </view>
             <view class="widgets__list">
-                <view  class="widget">
+                <navigator  class="widget" url="../../address/address">
                     <text class="widget__name__only">城市</text>
                     <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
-                    <input class="widget__right"   value="{{userInfo.city}}"></input>
-                </view>
+                    <view class="widget__right"  >{{userInfo.city}}</view>
+                </navigator>
             </view>
         </view>
     </view>

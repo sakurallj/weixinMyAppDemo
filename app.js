@@ -22,6 +22,7 @@ App({
       }
     })
   },
+
   getUserInfo:function(cb){
     var that = this;
     if(this.globalData.userInfo.has){
@@ -30,31 +31,37 @@ App({
       //先从缓存中获得用户信息
       wx.getStorage({
         key: 'userInfo',
-        success: function(res) {
-          console.log("get user info from Storage success");
-          that.globalData.userInfo = res.data;
-          typeof cb == "function" && cb(that.globalData.userInfo);
-        },
-        fail: function(res) {
-          console.log("get user info from Storage fail");
-          if(that.globalData.userInfo.token){
-            console.log("get user info from api");
-            wx.request({
-              url:that.globalData.url.api.getUserInfo,
-              data: {
-                token: that.globalData.userInfo.token
-              }, 
-              success: function(res) {
-                console.log(res.data);
-                if(res.data.errcode==0){
-                  that.globalData.userInfo = res.data.data;
-                  that.globalData.userInfo.has =  true;
-                  //把用户信息保存到缓存
-                  wx.setStorage({key:"userInfo",data:that.globalData.userInfo});
-                  typeof cb == "function" && cb(that.globalData.userInfo);
+        complete: function(res) {
+          console.log("get user info from Storage");
+          if(res.data&&res.data.has){
+            console.log("get user info from Storage success");
+            that.globalData.userInfo = res.data;
+            typeof cb == "function" && cb(that.globalData.userInfo);
+          }
+          else{
+            console.log("get user info from fail");
+            if(that.globalData.userInfo.token){
+              console.log("get user info from api");
+              wx.request({
+                url:that.globalData.url.api.getUserInfo,
+                data: {
+                  token: that.globalData.userInfo.token
+                }, 
+                success: function(res) {
+                  console.log(res.data);
+                  if(res.data.errcode==0){
+                    that.globalData.userInfo = res.data.data;
+                    that.globalData.userInfo.has =  true;
+                    //把用户信息保存到缓存
+                    wx.setStorage({key:"userInfo",data:that.globalData.userInfo});
+                    typeof cb == "function" && cb(that.globalData.userInfo);
+                  }
                 }
-              }
-            });
+              });
+            }
+            else{
+              typeof cb == "function" && cb(that.globalData.userInfo);
+            }
           }
         } 
       });
