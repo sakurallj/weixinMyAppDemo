@@ -31,9 +31,19 @@ Page({
   },
   coverTap:function(e){
     this.setData({coverLeft:100,containerOverflowY:"scoll"});
-
   },
   cityTap:function(e){
  
+  },
+  selectCity:function(e){
+    var dataSet = e.target.dataset;
+    if(dataSet.city){
+      wx.setStorageSync('addressNewCity', dataSet.city);
+      this.setData({coverLeft:100,containerOverflowY:"scoll"});
+      wx.navigateBack();
+    }
+    else{
+
+    }
   }
 });

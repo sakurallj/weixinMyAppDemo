@@ -16,16 +16,14 @@
             <view class="widgets__list">
                 <view  class="widget">
                     <text class="widget__name__only">昵称</text>
-                    <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
-                    <view class="widget__right"  >{{userInfo.nick}}</view>
+                    <input class="widget__right" value="{{newNick?newNick:userInfo.nick}}" ></input>
                     <view class="widget__line"></view>
                 </view>
             </view>
             <view class="widgets__list">
                 <view  class="widget">
                     <text class="widget__name__only">年龄</text>
-                    <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
-                    <view class="widget__right"  >{{userInfo.age}}</view>
+                    <input class="widget__right" value="{{newAge?newAge:userInfo.age}}" type="number"></input>
                     <view class="widget__line"></view>
                 </view>
             </view>
@@ -33,9 +31,14 @@
                 <navigator  class="widget" url="../../address/address">
                     <text class="widget__name__only">城市</text>
                     <image class="widget__arrow" src="../../images/arrow-right.png" background-size="cover" />
-                    <view class="widget__right"  >{{userInfo.city}}</view>
+                    <view class="widget__right"  >{{newCity?newCity:userInfo.city}}</view>
                 </navigator>
             </view>
         </view>
+        <view class="buttons-group person-btn-group" wx:if="{{newCity||newAge||newNick}}" >
+            <button type="button" class="buttons"  id="submit" bindtap="savePersonInfo"   >
+                保存
+            </button>
+	    </view>
     </view>
 </view>

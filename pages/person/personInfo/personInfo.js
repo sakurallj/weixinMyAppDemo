@@ -2,6 +2,9 @@
 var app = getApp();
 Page({
   data:{
+    newCity:null,
+    newAge:null,
+    newNick:null,
     userInfo:{},
     toastHidden:true,
     toasttoastContent:"请重试"
@@ -20,6 +23,21 @@ Page({
   },
   onShow:function(){
     // 页面显示
+    var newCity = wx.getStorageSync("addressNewCity");
+    if(newCity){
+      this.setData({
+        newCity:newCity
+      });
+      wx.setStorage({
+        key:"addressNewCity",
+        data:null
+      });
+    }
+    else{
+      this.setData({
+        newCity:null
+      });
+    }
   },
   onHide:function(){
     // 页面隐藏
@@ -50,6 +68,25 @@ Page({
     var that = this;
     that.setData({
       toastHidden:true
+    });
+  },
+  savePersonInfo:function(){
+    var that = this;
+    wx.request({
+      url:that.globalData.url.api.savePersonInfo,
+      data: {
+        token: that.globalData.userInfo.token
+      }, 
+      success: function(res) {
+        console.log(res.data);
+        if(res.data.errcode==0){
+          that.globalData.userInfo = res.data.data;
+          that.globalData.userInfo.has =  true;
+          //把用户信息保存到缓存
+          wx.setStorage({key:"userInfo",data:that.globalData.userInfo});
+          typeof cb == "function" && cb(that.globalData.userInfo);
+        }
+      }
     });
   }
 });

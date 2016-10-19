@@ -1,6 +1,7 @@
 var app = getApp();
 Page({
   data:{
+   
    userInfo:{},
    modalContent:"",
    modalHidden:true,

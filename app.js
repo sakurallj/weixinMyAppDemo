@@ -77,7 +77,8 @@ App({
         socialHome:apiDomain+"?url=socialAPI",//获得球友圈首页
         login:apiDomain+"?url=memberAPI&task=mblogin",//登录
         getUserInfo:apiDomain+"?url=memberAPI&task=mbgetinfo" ,//获得用户信息
-        loginOut:apiDomain+"?url=memberAPI&task=mblogout" //登出 ?url=memberAPI&task=mblogout&token=73231180cd6a892be3c7d7934e199ec1
+        loginOut:apiDomain+"?url=memberAPI&task=mblogout", //登出 ?url=memberAPI&task=mblogout&token=73231180cd6a892be3c7d7934e199ec1
+        savePersonInfo:apiDomain+"?url=memberAPI&task=mbedit"//保存用户信息 ?url=memberAPI&task=mbedit&token=f9459e405a54172e105fa89c4bd5e37b  age  city  nickname token
       }
     }
   },
