@@ -3,6 +3,9 @@
     <toast hidden="{{toastHidden}}" icon="warn" duration="1500"  bindchange="toastChange" >
         {{toasttoastContent}}
     </toast>
+    <modal class="modal" hidden="{{modalHidden}}" no-cancel bindconfirm="modalConfirm">
+		<view>{{modelContent}}</view>
+	</modal>
     <view class="widgets">
         <view class="widgets__item widgets__item__top">
             <view class="widgets__list">
@@ -16,14 +19,14 @@
             <view class="widgets__list">
                 <view  class="widget">
                     <text class="widget__name__only">昵称</text>
-                    <input class="widget__right" value="{{newNick?newNick:userInfo.nick}}" ></input>
+                    <input class="widget__right" value="{{newNick?newNick:userInfo.nick}}"  bindinput="changeNick" ></input>
                     <view class="widget__line"></view>
                 </view>
             </view>
             <view class="widgets__list">
                 <view  class="widget">
                     <text class="widget__name__only">年龄</text>
-                    <input class="widget__right" value="{{newAge?newAge:userInfo.age}}" type="number"></input>
+                    <input class="widget__right" value="{{newAge?newAge:userInfo.age}}" bindinput="changeAge" type="number"></input>
                     <view class="widget__line"></view>
                 </view>
             </view>
@@ -35,7 +38,7 @@
                 </navigator>
             </view>
         </view>
-        <view class="buttons-group person-btn-group" wx:if="{{newCity||newAge||newNick}}" >
+        <view class="buttons-group person-btn-group" wx:if="{{newCity||newAge||newNick||newHeader}}" >
             <button type="button" class="buttons"  id="submit" bindtap="savePersonInfo"   >
                 保存
             </button>

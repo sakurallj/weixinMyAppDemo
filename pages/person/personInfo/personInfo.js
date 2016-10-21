@@ -5,9 +5,12 @@ Page({
     newCity:null,
     newAge:null,
     newNick:null,
+    newHeader:null,
     userInfo:{},
     toastHidden:true,
-    toasttoastContent:"请重试"
+    toasttoastContent:"请重试",
+    modalHidden:true,
+    modelContent:"出错了"
   },
   onLoad:function(options){
     var that = this;
@@ -54,7 +57,8 @@ Page({
         var userInfo = that.data.userInfo;
         userInfo.headimg = res.tempFilePaths[0];
         that.setData({
-          userInfo:userInfo
+          userInfo:userInfo,
+          newHeader:res.tempFilePaths[0]
         });
       },
       fail:function(res){
@@ -70,23 +74,89 @@ Page({
       toastHidden:true
     });
   },
+  changeNick:function(e){
+    var value = e.detail.value;
+    this.setData({newNick:value});
+  },
+  changeAge:function(e){
+    var value = e.detail.value;
+    if(value<0||value>100){
+      this.setData({newAge:0});
+      this.setData({modelContent:"true"});
+    }
+    else{
+      this.setData({newAge:value});
+    }
+  },
+  modalConfirm:function(){
+    this.setData({modalHidden:true});
+  },
   savePersonInfo:function(){
     var that = this;
-    wx.request({
-      url:that.globalData.url.api.savePersonInfo,
-      data: {
-        token: that.globalData.userInfo.token
-      }, 
-      success: function(res) {
-        console.log(res.data);
-        if(res.data.errcode==0){
-          that.globalData.userInfo = res.data.data;
-          that.globalData.userInfo.has =  true;
-          //把用户信息保存到缓存
-          wx.setStorage({key:"userInfo",data:that.globalData.userInfo});
-          typeof cb == "function" && cb(that.globalData.userInfo);
+    var data = {};
+    data["token"] = app.globalData.userInfo.token;
+    if(that.data.newCity){
+      data["city"] = that.data.newCity;
+    }
+    if(that.data.newNick){
+      data["nickname"] = that.data.newNick;
+    }
+    if(that.data.newAge){
+      data["age"] = that.data.newAge;
+    }
+    console.log(data);
+    if(that.data.newHeader){//修改了头像  
+      wx.uploadFile({
+        url: app.globalData.url.api.savePersonInfo,
+        filePath: that.data.newHeader,
+        name: 'headimg',
+        formData:data,
+        success: function(res) {
+          console.log("uploadFile");
+          console.log(res);
+          if(res.data){
+            var r = JSON.parse(res.data);
+            if(r.errcode==0){
+              var token = app.globalData.userInfo.token;
+              app.clearUserInfo();
+              app.globalData.userInfo.token=token;
+              wx.navigateBack();
+            }
+            else{
+              that.setData({
+                toastHidden:false
+              });
+            }
+          }
+          else{
+            that.setData({
+              toastHidden:false
+            });
+          }
         }
-      }
-    });
+      });
+    }
+    else{//没有修改头像
+      wx.request({
+        url:app.globalData.url.api.savePersonInfo,
+        data: data, 
+        success: function(res) {
+          console.log("request");
+          console.log(res.data);
+          if(res.data.errcode==0){
+            var token = app.globalData.userInfo.token;
+            app.clearUserInfo();
+            app.globalData.userInfo.token=token;
+            wx.navigateBack();
+          }
+          else{
+            that.setData({
+              toastHidden:true
+            });
+          }
+        }
+      });
+    }
+    
   }
 });

@@ -4,6 +4,20 @@ var domain = "http://ss.taolue.fm/shengsetiyu/singshine";//  domain
 var apiDomain = domain+"/appapi.php";//api domain
 
 App({
+  globalData:{
+    userInfo:{has:false},
+    location:{latitude:null,longitude:null,speed:null,accuracy:null},
+    url:{
+      api:{//不能以 / 结尾
+        home:apiDomain+"?url=matchAPI",//首页
+        socialHome:apiDomain+"?url=socialAPI",//获得球友圈首页
+        login:apiDomain+"?url=memberAPI&task=mblogin",//登录
+        getUserInfo:apiDomain+"?url=memberAPI&task=mbgetinfo" ,//获得用户信息
+        loginOut:apiDomain+"?url=memberAPI&task=mblogout", //登出 ?url=memberAPI&task=mblogout&token=73231180cd6a892be3c7d7934e199ec1
+        savePersonInfo:apiDomain+"?url=memberAPI&task=mbedit"//保存用户信息 ?url=memberAPI&task=mbedit&token=f9459e405a54172e105fa89c4bd5e37b  age  city  nickname token
+      }
+    }
+  },
   onLaunch: function () {
     var that = this;
     //调用API从本地缓存中获取数据
@@ -50,8 +64,10 @@ App({
                 success: function(res) {
                   console.log(res.data);
                   if(res.data.errcode==0){
+                    var token = that.globalData.userInfo.token;
                     that.globalData.userInfo = res.data.data;
                     that.globalData.userInfo.has =  true;
+                    that.globalData.userInfo.token =  token;
                     //把用户信息保存到缓存
                     wx.setStorage({key:"userInfo",data:that.globalData.userInfo});
                     typeof cb == "function" && cb(that.globalData.userInfo);
@@ -66,20 +82,6 @@ App({
         } 
       });
       
-    }
-  },
-  globalData:{
-    userInfo:{has:false},
-    location:{latitude:null,longitude:null,speed:null,accuracy:null},
-    url:{
-      api:{//不能以 / 结尾
-        home:apiDomain+"?url=matchAPI",//首页
-        socialHome:apiDomain+"?url=socialAPI",//获得球友圈首页
-        login:apiDomain+"?url=memberAPI&task=mblogin",//登录
-        getUserInfo:apiDomain+"?url=memberAPI&task=mbgetinfo" ,//获得用户信息
-        loginOut:apiDomain+"?url=memberAPI&task=mblogout", //登出 ?url=memberAPI&task=mblogout&token=73231180cd6a892be3c7d7934e199ec1
-        savePersonInfo:apiDomain+"?url=memberAPI&task=mbedit"//保存用户信息 ?url=memberAPI&task=mbedit&token=f9459e405a54172e105fa89c4bd5e37b  age  city  nickname token
-      }
     }
   },
   formatShowTime:function(date){
@@ -112,6 +114,12 @@ App({
       }
     }
     return date;
+  },
+  clearUserInfo:function(){
+    this.globalData.userInfo = {has:false};
+    wx.setStorage({
+      key:"userInfo",
+      data:{has:false}
+    });
   }
-
 });

@@ -5,7 +5,9 @@ Page({
     provinces:[],
     citys:[],
     coverLeft:100,
-    containerOverflowY:"scoll"
+    containerOverflowY:"scoll",
+    searchResCitys:[],
+    searchInputValue:null
   },
   onLoad:function(options){
     this.setData({provinces:address.getProvinces()});
@@ -44,6 +46,15 @@ Page({
     }
     else{
 
+    }
+  },
+  searchCity:function(e){
+    var value = e.detail.value;
+    if(value){
+      this.setData({searchResCitys:address.searchCitys(value),searchInputValue:value});
+    }
+    else{
+      this.setData({searchInputValue:null});
     }
   }
 });
